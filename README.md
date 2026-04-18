@@ -1,47 +1,52 @@
-# Traffic_Data_Analysis
-
-# Berlin Traffic Network Analysis (DLR-style project)
-
+# Traffic Digital Twin for Baden-Württemberg & Bayern
+Purpose:
+- Real-world multi-source traffic fusion
+- Streaming digital twin
+- BASt + HERE + OSM + DWD integration
+- Time-series + regression + graph modeling
+  
 ## Overview
-This project analyzes real-world traffic networks in Berlin using OpenStreetMap (OSM) data.  
-It combines graph-based network modeling, traffic flow simulation, and anomaly detection.
 
-## Objectives
-- Extract real road network data (OSM)
-- Build graph representation (NetworkX)
-- Simulate traffic flow
-- Detect anomalies using machine learning
-- Visualize results (geospatial + network)
+This repository implements a real-time traffic digital twin system integrating:
 
-## Tech Stack
-- Python
-- OSMnx (OSM data)
-- NetworkX (graph analysis)
-- Pandas / NumPy
-- Scikit-learn (Anomaly Detection)
-- Matplotlib
+- BASt traffic counts
+- HERE real-time traffic API
+- OpenStreetMap road topology
 
-## Installation
+Regions:
+- Baden-Württemberg
+- Bayern
 
-pip install osmnx networkx pandas numpy matplotlib scikit-learn
+## System Components
+
+1. Data ingestion (API + CSV)
+2. Data fusion (multi-source alignment)
+3. Streaming (Kafka-compatible)
+4. Digital twin state modeling
+5. Analytics & prediction
+6. Visualization
+
+## Data Sources
+
+- BASt (traffic counts)
+- HERE Technologies (real-time traffic)
+- OpenStreetMap (road graph)
+
+## Key Variables
+
+| Variable | Description | Unit |
+|----------|------------|------|
+| flow (q) | vehicles per hour | veh/h |
+| speed (v) | average speed | km/h |
+| density (k) | vehicles per km | veh/km |
+
+## Fundamental Equation
+
+Traffic flow theory:
+
+q = k * v
 
 ## Run
 
-python main.py
-
-## Output
-- Road network graph (Berlin)
-- Traffic flow simulation
-- Detected anomalies
-- Visualization plots
-
-## Research Relevance (DLR)
-This project reflects:
-- Network-based transport analysis
-- Data-driven infrastructure evaluation
-- Reproducible scientific workflow
-
-## References
-- OpenStreetMap
-- Boeing, G. (2017). OSMnx: New methods for acquiring, constructing, analyzing complex street networks
-- DLR Institute of Transport Research publications
+pip install -r requirements.txt
+python ingestion/here_loader.py
